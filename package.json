@@ -1,0 +1,23 @@
+{
+  "name": "js2-final-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sirbucket/js2-final-project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sirbucket/js2-final-project/issues"
+  },
+  "homepage": "https://github.com/Sirbucket/js2-final-project#readme",
+  "dependencies": {
+    "vite": "^4.0.4"
+  }
+}
