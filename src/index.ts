@@ -2,6 +2,7 @@ import { maker } from "./modules"
 import { NoteCard } from "./notecards"
 import { ProcessInput, Word } from "./processing"
 
+export let ReserveData : NoteCard[]
 export let NoteCards : NoteCard[]
 export let Words : Word[]
 let app = document.querySelector(".app")
@@ -11,16 +12,13 @@ function createNewWord(word, definition) {
     return wordObj
 }
 
-function addInputsToApp(typeboxes, buttons) {
-    for (let i = 0; i < typeboxes.length - 1; ++i) {
-        app?.appendChild(typeboxes[i].element)
-    }
-    for (let i = 0; i < buttons.length - 1; ++i) {
-        app?.appendChild(buttons[i].element)
-    }
-}
-
 function makeNotecards() {
+    for (let i = 0; i < NoteCards.length - 1; ++i) {
+        app?.removeChild(NoteCards[i].element)
+    }
+
+    NoteCards = []
+
     for (let i = 0; i < Words.length - 1; ++i) {
         maker.newNoteCard(Words[i]).onClick(() => {
             if (NoteCards[i].clicked) {
@@ -38,12 +36,16 @@ function makeNotecards() {
             }
         })
     }
+    for (let i = 0; i < NoteCards.length - 1; ++i) {
+        app?.appendChild(NoteCards[i].element)
+    }
 }
 
 function buildApp() {
     let typeboxes = []
     let buttons = []
-    
+    let controls = []
+
     let word : string
     let definition : string
 
@@ -51,14 +53,21 @@ function buildApp() {
         word = value;
     });
     maker.newTypebox("Definition", typeboxes).onInput((value) => {
-        definition = value
-    })
+        definition = value;
+    });
     maker.newButton("Add Notecard", buttons).onClick(() => {
-        let wordObj = createNewWord(word, definition)
-        Words.push(wordObj)
-    })
+        let wordObj = createNewWord(word, definition);
+        makeNotecards();
+        Words.push(wordObj);
+    });
 
-    addInputsToApp(typeboxes, buttons)
+    maker.newContainer(typeboxes, controls)
+    maker.newContainer(buttons, controls)
 
-    
+    for (let i = 0; i < controls.length - 1; ++i) {
+        app?.appendChild(controls[i].cloneContent)
+    }
+    makeNotecards();
 }
+
+buildApp();

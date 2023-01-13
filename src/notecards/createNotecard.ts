@@ -15,7 +15,7 @@ export class NoteCard {
         this.element = notecard.element
         this.oldHTML = notecard.element
         this.element.addEventListener("click", (event) => {
-            for (let i = 0; this.callbacks.length - 1; ++i) {
+            for (let i = 0; i < this.callbacks.length - 1; ++i) {
                 let cb = this.callbacks[i]
                 cb()
             }

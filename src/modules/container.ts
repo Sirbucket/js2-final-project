@@ -1,7 +1,7 @@
 export class Container {
     constructor(list) {
         let itemTemplate = document.querySelector("#controls");
-        const length = list.length;
+        const length = list.length - 1;
         this.clone = itemTemplate.cloneNode(true);
         this.cloneContent = this.clone.content.querySelector(".controls");
         for (let i = 0; i < length; ++i) {
