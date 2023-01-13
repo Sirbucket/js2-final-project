@@ -13,13 +13,13 @@ function createNewWord(word, definition) {
 }
 
 function makeNotecards() {
-    for (let i = 0; i < NoteCards.length - 1; ++i) {
+    for (let i = 0; i < NoteCards.length; ++i) {
         app?.removeChild(NoteCards[i].element)
     }
 
     NoteCards = []
 
-    for (let i = 0; i < Words.length - 1; ++i) {
+    for (let i = 0; i < Words.length; ++i) {
         maker.newNoteCard(Words[i]).onClick(() => {
             if (NoteCards[i].clicked) {
                 NoteCards[i].element.innerHTML = NoteCards[i].oldHTML.innerHTML
@@ -36,7 +36,7 @@ function makeNotecards() {
             }
         })
     }
-    for (let i = 0; i < NoteCards.length - 1; ++i) {
+    for (let i = 0; i < NoteCards.length; ++i) {
         app?.appendChild(NoteCards[i].element)
     }
 }
@@ -64,7 +64,7 @@ function buildApp() {
     maker.newContainer(typeboxes, controls)
     maker.newContainer(buttons, controls)
 
-    for (let i = 0; i < controls.length - 1; ++i) {
+    for (let i = 0; i < controls.length; ++i) {
         app?.appendChild(controls[i].cloneContent)
     }
     makeNotecards();

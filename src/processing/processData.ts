@@ -16,7 +16,7 @@ export class ProcessInput {
     filterInput(string : string) {
         let fString = string.toLowerCase().trimStart().trimEnd()
         if (fString == "") return false && console.log("This is blank");
-        for (let i = 0; i < this.words.length - 1; ++i) {
+        for (let i = 0; i < this.words.length; ++i) {
             if (fString == this.words[i].word || this.words[i].definition) return false && console.log("This word already exists");
         }
         return string
