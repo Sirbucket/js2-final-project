@@ -14,11 +14,12 @@ export class ProcessInput {
         this.words = words 
     }
     filterInput(string : string) {
-        let fstring = string.toLowerCase().trimStart().trimEnd()
-        if (fstring == "") return false && console.log("This is blank");
+        let fString = string.toLowerCase().trimStart().trimEnd()
+        if (fString == "") return false && console.log("This is blank");
         for (let i = 0; i < this.words.length - 1; ++i) {
-            if (fstring == this.words[i].word || this.words[i].definition) return false && console.log("This word already exists");
+            if (fString == this.words[i].word || this.words[i].definition) return false && console.log("This word already exists");
         }
         return string
     }
 }
+

@@ -1,5 +1,5 @@
 import {Button, Typebox, Container, Element} from "./"
-
+import { NoteCard } from "../notecards"
 export class ElementMaker {
     constructor() {}
     
@@ -30,4 +30,11 @@ export class ElementMaker {
         list.push(element)
         return element
     }
+
+    newNoteCard (word) {
+        const notecard = new NoteCard(word)
+        return notecard
+    }
 }
+
+export let maker = new ElementMaker()
